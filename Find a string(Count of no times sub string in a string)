@@ -1,0 +1,43 @@
+"""
+In this challenge, the user enters a string and a substring. You have to print the number of times that the substring occurs in the given string. String traversal will take place from left to right, not from right to left.
+
+NOTE: String letters are case-sensitive.
+
+Input Format
+
+The first line of input contains the original string. The next line contains the substring.
+
+Sample Input
+
+ABCDCDC
+CDC
+Sample Output
+
+2
+"""
+
+def count_substring(string, sub_string):
+    flag=0
+    z=0
+    count=0
+    for i in range(len(string)):
+    
+        z=i
+        flag=0
+        for j in range(len(sub_string)):
+            if z<len(string) and sub_string[j]==string[z]:
+                flag=flag+1
+            
+                z=z+1
+                if flag==len(sub_string):
+                    count=count+1
+            else:
+                break       
+    return count
+
+if __name__ == '__main__':
+    string = raw_input().strip()
+    sub_string = raw_input().strip()
+    
+    count = count_substring(string, sub_string)
+    print count
